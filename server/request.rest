@@ -1,0 +1,10 @@
+POST http://localhost:3001/aggregate
+Content-Type: application/json
+
+{
+    "method": "getAllVehiclesWithDetails",
+    "payload": {
+        "name": "1234",
+        "id": "456"
+    }
+}
