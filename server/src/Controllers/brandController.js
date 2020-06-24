@@ -1,6 +1,6 @@
 const BrandRepository = require('../Repositories/brandRepository');
 
-class VehicleController {
+class BrandController {
     
     async getAll(req, res) {
         const brands = await BrandRepository.getAll();
@@ -8,4 +8,4 @@ class VehicleController {
     }
 }
 
-module.exports = new VehicleController();
+module.exports = new BrandController();
