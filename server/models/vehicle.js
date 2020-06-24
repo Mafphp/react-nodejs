@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
   }, { timestamps: true});
   vehicle.associate = function(models) {
-    console.log(models);
     vehicle.belongsTo(models.brand, {foreignKey: 'brand_id', sourceKey: 'id'});
     vehicle.belongsTo(models.category, {foreignKey: 'category_id', sourceKey: 'id'});
     vehicle.belongsTo(models.model, {foreignKey: 'model_id', sourceKey: 'id'});

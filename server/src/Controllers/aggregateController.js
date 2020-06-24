@@ -4,8 +4,6 @@ class AggregateController {
     constructor() {}
     
     async query(req, res) {
-        console.log(this);
-        console.log(req.body);
        try {
             const {method, payload} = req.body;
             if (!method) {
@@ -20,8 +18,8 @@ class AggregateController {
             res.status(402).send(err.message);
         }    
     }
-    static async getAllVehiclesWithDetails() {
-        const result = await AggregateRepository.getAllVehicles();
+    static async getAllVehiclesWithDetails(payload) {
+        const result = await AggregateRepository.getAllVehicles(payload);
         return result;
 
     }
