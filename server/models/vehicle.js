@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, { timestamps: true});
   vehicle.associate = function(models) {
     vehicle.belongsTo(models.brand, {foreignKey: 'brand_id', sourceKey: 'id'});
-    vehicle.belongsTo(models.brand, {foreignKey: 'category_id', sourceKey: 'id'});
+    vehicle.belongsTo(models.category, {foreignKey: 'category_id', sourceKey: 'id'});
     vehicle.belongsTo(models.model, {foreignKey: 'model_id', sourceKey: 'id'});
   };
   return vehicle;
