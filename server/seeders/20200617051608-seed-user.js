@@ -1,26 +1,28 @@
 'use strict';
-
+const bcrypt = require('bcrypt');
+const HASH_SALT = 10;
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: async (queryInterface, Sequelize) => {
+    const defaultHashPassword = await bcrypt.hash(process.env.DEFAULT_PASSWORD || '123', HASH_SALT)
     return queryInterface.bulkInsert('users', [{
         firstName: 'admin',
         lastName: 'admin',
         username: 'admin',
-        password: '123',
+        password: defaultHashPassword,
         createdAt: new Date().toDateString(),
         updatedAt: new Date().toDateString()
     }, {
         firstName: 'alireza',
         lastName: 'ashtari',
         username: 'ar.ashtari',
-        password: '123',
+        password: defaultHashPassword,
         createdAt: new Date().toDateString(),
         updatedAt: new Date().toDateString()
       }, {
         firstName: 'mohammadali',
         lastName: 'farhad',
         username: 'fardabara',
-        password: '123',
+        password: defaultHashPassword,
         createdAt: new Date().toDateString(),
         updatedAt: new Date().toDateString()
       }], {});
